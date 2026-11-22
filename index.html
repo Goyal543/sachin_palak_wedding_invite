@@ -362,55 +362,12 @@ function rain(n){for(let i=0;i<n;i++)setTimeout(()=>parts.push({x:Math.random()*
 
 /* music: sitar-style (Karplus-Strong) Raag Khamaj + dholak */
 const Music=(()=>{
-  // Original santoor-style piece in D major with pad, bass, light tabla and reverb
-  let ctx,master,wet,on=false,timer,nt=0,step=0;
-  const D=293.66,f=s=>D*Math.pow(2,s/12),E=.34; // eighth-note length
-  const BARS=[
-    {ch:[0,4,7],   m:[[7,2],[9,1],[7,1],[4,2],[2,1],[4,1]]},
-    {ch:[-3,0,4],  m:[[2,2],[4,1],[2,1],[-1,2],[-3,2]]},
-    {ch:[-7,-3,0], m:[[-1,1],[0,1],[2,2],[4,2],[7,2]]},
-    {ch:[-5,-1,2], m:[[9,3],[7,1],[4,4]]},
-    {ch:[0,4,7],   m:[[12,2],[11,1],[9,1],[7,2],[9,1],[11,1]]},
-    {ch:[-3,0,4],  m:[[14,2],[12,1],[11,1],[9,4]]},
-    {ch:[-7,-3,0], m:[[7,1],[9,1],[11,2],[9,1],[7,1],[4,2]]},
-    {ch:[-5,-1,2], m:[[2,2],[4,2],[6,2],[4,1],[2,1]]},
-    {ch:[0,4,7],   m:[[0,6],[null,2]]},
-  ];
-  function impulse(sec){const sr=ctx.sampleRate,len=sr*sec,b=ctx.createBuffer(2,len,sr);
-    for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);}return b;}
-  function init(){ctx=new (window.AudioContext||window.webkitAudioContext)();
-    master=ctx.createGain();master.gain.value=0;
-    const comp=ctx.createDynamicsCompressor();comp.threshold.value=-18;comp.ratio.value=3;
-    const rev=ctx.createConvolver();rev.buffer=impulse(2.8);wet=ctx.createGain();wet.gain.value=.38;
-    master.connect(comp);master.connect(rev);rev.connect(wet);wet.connect(comp);comp.connect(ctx.destination);}
-  // santoor strike: inharmonic partials, fast decay, bright attack
-  function strike(fr,t,vol){[[1,1,1.6],[2,.45,.9],[3,.22,.6],[4.17,.12,.35],[5.4,.06,.25]].forEach(([m,a,dec])=>{
-      const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=fr*m;
-      g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol*a,t+.004);g.gain.exponentialRampToValueAtTime(.0001,t+dec);
-      o.connect(g);g.connect(master);o.start(t);o.stop(t+dec+.05);});}
-  function note(semi,eighths,t){if(semi===null)return;const fr=f(semi);
-    strike(fr,t,.13);
-    if(eighths>=2){for(let k=1;k<eighths*2;k++)strike(fr,t+k*E/2,.045*(1-k/(eighths*2)));} // santoor tremolo
-  }
-  function pad(ch,t,dur){ch.forEach(s=>{[0,7].forEach(det=>{const o=ctx.createOscillator();o.type='triangle';o.frequency.value=f(s-12);o.detune.value=det;
-      const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=900;const g=ctx.createGain();
-      g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.028,t+.7);g.gain.setValueAtTime(.028,t+dur-.4);g.gain.linearRampToValueAtTime(0,t+dur+.6);
-      o.connect(lp);lp.connect(g);g.connect(master);o.start(t);o.stop(t+dur+.7);});});
-    const b=ctx.createOscillator(),bg=ctx.createGain();b.type='sine';b.frequency.value=f(ch[0]-24);
-    bg.gain.setValueAtTime(0,t);bg.gain.linearRampToValueAtTime(.16,t+.02);bg.gain.exponentialRampToValueAtTime(.001,t+dur);b.connect(bg);bg.connect(master);b.start(t);b.stop(t+dur+.1);}
-  function tabla(t,kind){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';
-    const fr=kind==='dha'?92:kind==='na'?520:300;o.frequency.setValueAtTime(fr*1.5,t);o.frequency.exponentialRampToValueAtTime(fr,t+.04);
-    g.gain.setValueAtTime(kind==='dha'?.22:.06,t);g.gain.exponentialRampToValueAtTime(.001,t+(kind==='dha'?.45:.12));o.connect(g);g.connect(master);o.start(t);o.stop(t+.5);}
-  function sch(){while(nt<ctx.currentTime+1.5){
-      const bar=BARS[step%BARS.length],dur=8*E;
-      pad(bar.ch,nt,dur);
-      let tt=nt;bar.m.forEach(([s,e])=>{note(s,e,tt);tt+=e*E;});
-      // keherwa-style light pattern: dha . ge na | . na dha .
-      ['dha',0,'tin','na',0,'na','dha',0].forEach((k,i)=>{if(k)tabla(nt+i*E,k);});
-      nt+=dur;step++;}}
-  return{start(){try{if(!ctx)init();ctx.resume();on=true;nt=ctx.currentTime+.2;step=0;master.gain.cancelScheduledValues(ctx.currentTime);
-           master.gain.setValueAtTime(master.gain.value,ctx.currentTime);master.gain.linearRampToValueAtTime(.9,ctx.currentTime+1.5);clearInterval(timer);timer=setInterval(sch,200)}catch(e){}},
-         stop(){if(!ctx)return;on=false;clearInterval(timer);master.gain.cancelScheduledValues(ctx.currentTime);master.gain.setValueAtTime(master.gain.value,ctx.currentTime);master.gain.linearRampToValueAtTime(0,ctx.currentTime+.6)},
+  // Plays the couple's chosen track (music.mp3), looped, with gentle fades
+  const a=new Audio('music.mp3');a.loop=true;a.preload='auto';a.volume=0;let on=false,fade;
+  function ramp(to,ms,done){clearInterval(fade);const from=a.volume,steps=Math.max(1,ms/50);let k=0;
+    fade=setInterval(()=>{k++;a.volume=Math.min(1,Math.max(0,from+(to-from)*k/steps));if(k>=steps){clearInterval(fade);done&&done();}},50);}
+  return{start(){on=true;const p=a.play();if(p&&p.catch)p.catch(()=>{on=false;const b=document.getElementById('music');b&&b.classList.remove('on');});ramp(.85,1500);},
+         stop(){on=false;ramp(0,600,()=>a.pause());},
          get on(){return on}};
 })();
 const ON='<svg viewBox="0 0 24 24" fill="#fbbf24"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h6V3H9z"/></svg>';
