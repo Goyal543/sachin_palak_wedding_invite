@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="With joy, the Goyal Family invites you to the wedding of Sachin & Palak · 11–12 December 2026 · Padmavat Resort">
+<meta property="og:title" content="Sachin & Palak · Shubh Vivah 💍">
+<meta property="og:description" content="You are cordially invited · 11–12 December 2026 · Padmavat Resort">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b4f57">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%9A%3C/text%3E%3C/svg%3E">
+<title>Sachin & Palak · Peacock & Marigold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Alex+Brush&family=Mulish:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0b4f57; --teal2:#127a7f; --peacock:#0e6e8c; --emerald:#1f8a5b;
+  --mari:#f59e0b; --mari2:#fbbf24; --mag:#c0266d; --cream:#fff8ec; --paper:#fdf1dc; --ink:#2b2321;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+html,body{overflow-x:clip;max-width:100%}
+body{font-family:'Mulish',sans-serif;color:var(--ink);background:var(--cream);overflow-x:hidden;-webkit-tap-highlight-color:transparent;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%230b4f57' stroke-opacity='.06' stroke-width='1.2'%3E%3Cpath d='M60 20c18 0 26 14 22 26-3 9-14 12-20 6-5-5-1-12 4-11'/%3E%3Cpath d='M20 80c0-12 10-18 18-15 6 2 7 10 2 13-4 2-7-1-6-4'/%3E%3Ccircle cx='95' cy='95' r='6'/%3E%3Ccircle cx='95' cy='95' r='2'/%3E%3C/g%3E%3C/svg%3E")}
+body.locked{overflow:hidden;height:100vh}
+.brush{font-family:'Alex Brush',cursive}
+.yes{font-family:'Yeseva One',serif}
+.kicker{font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;color:var(--mag)}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:80}
+
+/* =============== CURTAIN =============== */
+#curtain{position:fixed;inset:0;z-index:60;background:linear-gradient(180deg,#0b4f57,#083a40);overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 1.8s cubic-bezier(.7,0,.3,1)}
+#curtain.up{transform:translateY(-105%)}
+.mandala{position:absolute;left:50%;top:50%;width:min(150vw,900px);height:min(150vw,900px);margin:calc(min(150vw,900px)/-2) 0 0 calc(min(150vw,900px)/-2);
+  opacity:.14;animation:turn 90s linear infinite;pointer-events:none}
+@keyframes turn{to{transform:rotate(360deg)}}
+.corner{position:absolute;width:110px;height:110px;opacity:.55;pointer-events:none}
+.corner.tl{top:14px;left:14px}.corner.tr{top:14px;right:14px;transform:scaleX(-1)}
+.corner.bl{bottom:14px;left:14px;transform:scaleY(-1)}.corner.br{bottom:14px;right:14px;transform:scale(-1)}
+
+
+#curtain{background:radial-gradient(circle at 50% 45%,#0f6268 0%,#0b4f57 45%,#062f34 100%)}
+.c-center{position:relative;z-index:2;text-align:center;color:var(--cream);padding:34px 30px 28px;margin:0 18px;border-radius:200px 200px 28px 28px;background:radial-gradient(circle at 50% 30%,#127a7f,#0b4f57 70%);border:3px solid var(--mari);box-shadow:0 0 0 6px rgba(11,79,87,.9),0 25px 60px rgba(0,0,0,.45)}
+.c-center .brush{font-size:3.6rem;color:var(--mari2);line-height:1.1}
+.c-center .yes{font-size:1.1rem;letter-spacing:.25em;margin-top:10px}
+.peacock{width:150px;margin:0 auto 14px;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+.pull{margin-top:34px;display:inline-flex;flex-direction:column;align-items:center;gap:10px;background:none;border:none;cursor:pointer;color:var(--mari2)}
+.pull .tassel{width:16px;height:70px;position:relative;animation:tug 1.8s ease-in-out infinite}
+.pull .tassel::before{content:"";position:absolute;left:7px;top:0;width:2px;height:40px;background:var(--mari2)}
+.pull .tassel::after{content:"";position:absolute;left:0;top:38px;width:16px;height:30px;border-radius:8px 8px 3px 3px;background:linear-gradient(var(--mag),#8e1450)}
+@keyframes tug{50%{transform:translateY(8px)}}
+.pull span{font-weight:700;letter-spacing:.25em;font-size:.72rem;text-transform:uppercase}
+
+/* =============== PAGE =============== */
+main{max-width:900px;margin:0 auto;padding:0 20px}
+section{padding:70px 0;text-align:center}
+.reveal{opacity:0;transform:translateY(40px) scale(.98);transition:all 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+h2{font-family:'Yeseva One',serif;font-weight:400;font-size:clamp(2rem,7vw,2.8rem);color:var(--teal);margin-top:10px}
+.feather-div{width:180px;margin:16px auto}
+
+/* toran on top */
+.toran{position:sticky;top:0;z-index:20;height:34px;margin-bottom:-34px;pointer-events:none;
+  background:
+   radial-gradient(circle at 15px 0,#f59e0b 9px,transparent 10px) 0 0/30px 22px repeat-x,
+   radial-gradient(circle at 15px 6px,#2f8a4a 5px,transparent 6px) 15px 12px/30px 22px repeat-x;
+  filter:drop-shadow(0 3px 3px rgba(0,0,0,.15))}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;isolation:isolate}
+.next{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;
+  background:none;border:none;cursor:pointer;color:var(--mari2);font-family:'Mulish',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase}
+.next .arr{width:42px;height:42px;border-radius:50%;border:2px solid var(--mari2);display:grid;place-items:center;animation:bounce 1.8s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;z-index:-2;
+  background:radial-gradient(circle at 50% 50%,#0f6268 0%,#0b4f57 50%,#062f34 100%)}
+.hero .mandala{z-index:-1;opacity:.16}
+.hero .jharokha{box-shadow:0 0 0 8px #0b4f57,0 0 0 11px var(--mari),0 30px 80px rgba(0,0,0,.45)}
+.jharokha{position:relative;width:min(560px,94vw);padding:80px 28px 46px;background:var(--paper);
+  border-radius:280px 280px 24px 24px;border:3px solid var(--teal);
+  box-shadow:0 0 0 8px var(--cream),0 0 0 11px var(--mari),0 30px 70px rgba(11,79,87,.25)}
+.jharokha::before{content:"";position:absolute;inset:14px;border:1.5px dashed var(--teal2);border-radius:266px 266px 14px 14px;opacity:.5}
+.ganesh{font-family:'Tiro Devanagari Hindi',serif;color:var(--mag);font-size:1rem;line-height:1.9}
+.om{font-size:2.6rem;color:var(--mari);font-family:'Tiro Devanagari Hindi',serif;line-height:1}
+.hero .names{font-family:'Alex Brush',cursive;font-size:clamp(3.2rem,12.5vw,6.4rem);color:var(--teal);line-height:1;margin:24px 0 4px}
+.hero .names span{color:var(--mag);font-size:.6em;padding:0 6px}
+.hero .dt{display:inline-block;margin-top:14px;padding:10px 22px;border-radius:999px;background:var(--teal);color:var(--cream);font-weight:700;letter-spacing:.18em;font-size:.8rem}
+
+.invite{position:relative;isolation:isolate;padding:80px 0}
+.invite::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;z-index:-2;
+  background:radial-gradient(circle at 50% 30%,#fff3df 0%,#fde4c4 55%,#f8cf9c 100%)}
+.invite .mandala{z-index:-1;opacity:.12;filter:brightness(.55) sepia(1) hue-rotate(-15deg)}
+.inv-card{position:relative;max-width:460px;margin:0 16px;margin-inline:max(16px,calc((100% - 460px)/2));padding:46px 26px 40px;background:#fffaf1;border-radius:26px;
+  border:2px solid var(--teal);box-shadow:0 0 0 7px #fffaf1,0 0 0 9px var(--mari),0 24px 60px rgba(150,80,10,.22)}
+.inv-card .feather{position:absolute;width:60px;opacity:.9}
+.inv-card .feather.l{top:-22px;left:-14px;transform:rotate(-30deg)}
+.inv-card .feather.r{top:-22px;right:-14px;transform:rotate(30deg) scaleX(-1)}
+.invite .kicker{display:block;line-height:1.7}
+.invite .lead{font-size:1rem;line-height:1.6;color:#6b5d57;margin:0 auto;max-width:300px}
+.invite .fam{font-family:'Yeseva One',serif;font-size:1.3rem;line-height:1.35;color:var(--teal);margin:14px 0}
+.invite .fam .amp{display:block;font-family:'Alex Brush',cursive;font-size:1.6rem;color:var(--mari);line-height:1.1}
+.invite .nm{font-family:'Alex Brush',cursive;font-size:3.6rem;color:var(--mag);line-height:1;margin:18px 0 10px}
+.invite .with{display:flex;align-items:center;justify-content:center;gap:12px;font-family:'Alex Brush',cursive;font-size:1.7rem;color:var(--teal);margin:2px 0}
+.invite .with::before,.invite .with::after{content:"";width:46px;height:1px;background:var(--mari)}
+.invite .closing{margin-top:24px;padding-top:20px;border-top:1px dashed #e7cfa8;font-size:1.02rem;line-height:1.6;color:#4b3f3a}
+
+/* =============== BELL =============== */
+.bell-wrap{margin:30px auto 0;width:160px;cursor:pointer;background:none;border:none}
+.bell{transform-origin:50% 0;transform-box:fill-box}
+.bell-wrap.ring .bell{animation:ring 1.6s cubic-bezier(.36,.07,.19,.97)}
+@keyframes ring{10%{transform:rotate(22deg)}25%{transform:rotate(-18deg)}40%{transform:rotate(13deg)}55%{transform:rotate(-9deg)}70%{transform:rotate(5deg)}85%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
+.bell-note{color:#6b5d57;margin-top:8px;font-size:1rem}
+.datebox{max-height:0;opacity:0;overflow:hidden;transition:all 1.3s ease}
+.datebox.show{max-height:520px;opacity:1;margin-top:26px}
+.cal{display:inline-block;width:210px;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(11,79,87,.25);border:3px solid var(--teal)}
+.cal .m{background:var(--mag);color:#fff;padding:10px;font-weight:700;letter-spacing:.3em;font-size:.85rem}
+.cal .d{font-family:'Yeseva One',serif;font-size:5.4rem;color:var(--teal);line-height:1.1;padding-top:6px}
+.cal .w{padding-bottom:14px;font-weight:700;letter-spacing:.2em;font-size:.75rem;color:var(--mari)}
+.cd{display:flex;gap:10px;justify-content:center;margin-top:28px}
+.cd div{width:74px;padding:12px 0;border-radius:16px;background:var(--teal);color:var(--cream)}
+.cd b{display:block;font-family:'Yeseva One',serif;font-weight:400;font-size:1.7rem;color:var(--mari2)}
+.cd small{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* =============== FLIP CARDS =============== */
+.hint{color:#6b5d57;margin-top:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;margin-top:36px}
+.flip{perspective:1200px;height:380px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform 1s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:26px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.front{background:var(--c1);color:#fff}
+.front::before{content:"";position:absolute;inset:10px;border:2px solid rgba(255,255,255,.45);border-radius:18px}
+.front .em{font-size:4.2rem;line-height:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}
+.front h3{font-family:'Yeseva One',serif;font-weight:400;font-size:2.1rem;line-height:1.15;margin-top:14px;text-align:center;position:relative}
+.front .orig{font-family:'Alex Brush',cursive;font-size:1.7rem;opacity:.95;margin-top:2px}
+.back .orig2{font-family:'Alex Brush',cursive;font-size:1.4rem;color:var(--c2);opacity:.8;margin-top:-2px}
+.front .when{font-weight:700;letter-spacing:.2em;font-size:.75rem;margin-top:8px;opacity:.95}
+.front .tap{position:absolute;bottom:26px;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;opacity:.85;animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.35}}
+.back{background:#fff;transform:rotateY(180deg);border:3px solid var(--c2);text-align:left;align-items:stretch;justify-content:flex-start}
+.back h4{font-family:'Yeseva One',serif;font-weight:400;font-size:1.45rem;line-height:1.2;color:var(--c2)}
+.back .tag{font-style:italic;color:#6b5d57;margin:6px 0 16px}
+.back .row{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed #e7d9c4}
+.back .row span:first-child{font-size:1.15rem;width:24px;text-align:center}
+.back .row small{display:block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c2);font-weight:700}
+.back .row div{font-size:1rem;font-weight:600;color:var(--ink)}
+.back .btns{margin-top:auto;display:flex;gap:8px}
+.back a{flex:1;text-align:center;text-decoration:none;padding:11px 6px;border-radius:12px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.back a.p{background:var(--c2);color:#fff}.back a.s{border:2px solid var(--c2);color:var(--c2)}
+.sangeet{--c1:linear-gradient(150deg,#7c3aed,#c0266d);--c2:#8b2fc9}
+.haldi  {--c1:linear-gradient(150deg,#fbbf24,#f97316);--c2:#d97706}
+.wedding{--c1:linear-gradient(150deg,#be123c,#7f1d1d);--c2:#b91c3c}
+
+.sec-bell,.sec-events{position:relative;isolation:isolate}
+.sec-bell::before,.sec-events::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;z-index:-2}
+.sec-bell::before{background:radial-gradient(circle at 50% 45%,#0f6268 0%,#0b4f57 50%,#062f34 100%)}
+.sec-bell .mandala{z-index:-1;opacity:.16}
+.sec-bell .kicker{color:var(--mari2)}
+.sec-bell h2{color:var(--cream)}
+.sec-bell .bell-note{color:#d9ece9}
+.sec-bell .bell-wrap svg{filter:drop-shadow(0 0 28px rgba(251,191,36,.45))}
+.sec-bell .cal{border-color:var(--mari);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.sec-bell .cd div{background:rgba(255,255,255,.08);border:1px solid rgba(251,191,36,.5)}
+.sec-events{padding-bottom:110px}
+.sec-events::before{background:linear-gradient(180deg,#e3f3ef 0%,#cfe9e3 60%,#bfe0d9 100%)}
+.sec-events .mandala{z-index:-1;opacity:.10;filter:brightness(.3) sepia(1) hue-rotate(130deg) saturate(3)}
+
+/* =============== FOOTER =============== */
+footer{margin-top:-40px;padding:60px 20px 90px;text-align:center;background:var(--teal);color:var(--cream);border-radius:40px 40px 0 0;position:relative}
+footer .brush{font-size:3.2rem;color:var(--mari2)}
+footer p{opacity:.85;margin-top:8px}
+footer .tagline{font-family:'Yeseva One',serif;font-size:1.4rem;margin-top:22px}
+.venue{max-width:380px;margin:30px auto 0;padding:26px 22px;border-radius:22px;background:rgba(255,255,255,.07);border:1px solid rgba(251,191,36,.5)}
+.venue .pin{width:54px;height:54px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;background:var(--mari);box-shadow:0 0 0 6px rgba(245,158,11,.2)}
+.venue h4{font-family:'Yeseva One',serif;font-weight:400;font-size:1.6rem;color:var(--cream)}
+.venue .when{font-size:.95rem;opacity:.85;margin-top:4px}
+.venue a{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:13px 26px;border-radius:999px;background:var(--mari);color:var(--teal);
+  text-decoration:none;font-weight:700;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+#music{position:fixed;right:16px;bottom:16px;z-index:70;width:56px;height:56px;border-radius:50%;border:3px solid var(--mari);background:var(--teal);
+  display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+#music svg{width:26px;height:26px}
+#music.on{animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(245,158,11,.25),0 8px 20px rgba(0,0,0,.25)}}
+@media (max-width:520px){.flip{height:400px}.c-center .brush{font-size:3rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body class="locked">
+<canvas id="fx"></canvas>
+<button id="music" aria-label="Toggle music"></button>
+
+<!-- ================= CURTAIN ================= -->
+<div id="curtain">
+  <svg class="mandala" viewBox="0 0 400 400" fill="none" stroke="#f3d98b" stroke-width="1.1">
+      <circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="176"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(0 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(15 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(30 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(45 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(60 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(75 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(90 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(105 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(120 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(135 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(150 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(165 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(180 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(195 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(210 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(225 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(240 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(255 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(270 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(285 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(300 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(315 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(330 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(345 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(0 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(20 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(40 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(60 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(80 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(100 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(120 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(140 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(160 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(180 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(200 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(220 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(240 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(260 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(280 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(300 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(320 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(340 200 200)"/>
+      <circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="38"/><circle cx="200" cy="200" r="16"/>
+      <g fill="#f3d98b" stroke="none"><circle cx="200" cy="12" r="3" transform="rotate(0 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(10 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(20 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(30 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(40 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(50 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(60 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(70 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(80 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(90 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(100 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(110 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(120 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(130 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(140 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(150 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(160 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(170 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(180 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(190 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(200 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(210 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(220 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(230 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(240 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(250 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(260 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(270 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(280 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(290 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(300 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(310 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(320 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(330 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(340 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(350 200 200)"/></g></svg>
+  
+  
+  <svg class="corner tl" viewBox="0 0 110 110" fill="none" stroke="#f3d98b" stroke-width="1.4"><path d="M2 108 V20 Q2 2 20 2 H108"/><path d="M12 108 V28 Q12 12 28 12 H108" opacity=".6"/><circle cx="30" cy="30" r="7"/><circle cx="30" cy="30" r="2.5" fill="#f3d98b"/><path d="M44 30 Q60 22 76 30 M30 44 Q22 60 30 76" opacity=".7"/></svg><svg class="corner tr" viewBox="0 0 110 110" fill="none" stroke="#f3d98b" stroke-width="1.4"><path d="M2 108 V20 Q2 2 20 2 H108"/><path d="M12 108 V28 Q12 12 28 12 H108" opacity=".6"/><circle cx="30" cy="30" r="7"/><circle cx="30" cy="30" r="2.5" fill="#f3d98b"/><path d="M44 30 Q60 22 76 30 M30 44 Q22 60 30 76" opacity=".7"/></svg><svg class="corner bl" viewBox="0 0 110 110" fill="none" stroke="#f3d98b" stroke-width="1.4"><path d="M2 108 V20 Q2 2 20 2 H108"/><path d="M12 108 V28 Q12 12 28 12 H108" opacity=".6"/><circle cx="30" cy="30" r="7"/><circle cx="30" cy="30" r="2.5" fill="#f3d98b"/><path d="M44 30 Q60 22 76 30 M30 44 Q22 60 30 76" opacity=".7"/></svg><svg class="corner br" viewBox="0 0 110 110" fill="none" stroke="#f3d98b" stroke-width="1.4"><path d="M2 108 V20 Q2 2 20 2 H108"/><path d="M12 108 V28 Q12 12 28 12 H108" opacity=".6"/><circle cx="30" cy="30" r="7"/><circle cx="30" cy="30" r="2.5" fill="#f3d98b"/><path d="M44 30 Q60 22 76 30 M30 44 Q22 60 30 76" opacity=".7"/></svg>
+  <div class="c-center">
+    <svg class="peacock" viewBox="0 0 160 120">
+      <defs><radialGradient id="eye"><stop offset="0" stop-color="#0b2a6b"/><stop offset=".35" stop-color="#0e6e8c"/><stop offset=".6" stop-color="#1f8a5b"/><stop offset=".85" stop-color="#fbbf24"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></radialGradient></defs>
+      <g opacity=".95">
+        <circle cx="80" cy="30" r="16" fill="url(#eye)"/><circle cx="48" cy="38" r="14" fill="url(#eye)"/><circle cx="112" cy="38" r="14" fill="url(#eye)"/>
+        <circle cx="24" cy="58" r="12" fill="url(#eye)"/><circle cx="136" cy="58" r="12" fill="url(#eye)"/>
+        <circle cx="62" cy="58" r="11" fill="url(#eye)"/><circle cx="98" cy="58" r="11" fill="url(#eye)"/>
+      </g>
+      <path d="M80 112 C70 100 70 82 76 72 C72 66 74 58 80 56 C86 56 88 62 86 68 C92 78 92 100 80 112Z" fill="#0e6e8c"/>
+      <circle cx="82" cy="61" r="1.6" fill="#fff"/><path d="M86 62 l6 2 -6 1z" fill="#f59e0b"/>
+      <path d="M78 56 l-2 -8 M80 55 l0 -9 M82 56 l2 -8" stroke="#0e6e8c" stroke-width="1.4"/>
+    </svg>
+    <div class="yes">SHUBH VIVAH</div>
+    <div class="brush">Sachin &amp; Palak</div>
+    <button class="pull" id="pull"><div class="tassel"></div><span>Pull to open</span></button>
+  </div>
+</div>
+
+<div class="toran"></div>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="mandala" viewBox="0 0 400 400" fill="none" stroke="#f3d98b" stroke-width="1.1">
+      <circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="176"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(0 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(15 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(30 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(45 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(60 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(75 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(90 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(105 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(120 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(135 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(150 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(165 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(180 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(195 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(210 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(225 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(240 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(255 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(270 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(285 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(300 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(315 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(330 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(345 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(0 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(20 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(40 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(60 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(80 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(100 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(120 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(140 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(160 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(180 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(200 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(220 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(240 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(260 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(280 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(300 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(320 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(340 200 200)"/>
+      <circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="38"/><circle cx="200" cy="200" r="16"/>
+      <g fill="#f3d98b" stroke="none"><circle cx="200" cy="12" r="3" transform="rotate(0 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(10 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(20 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(30 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(40 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(50 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(60 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(70 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(80 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(90 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(100 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(110 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(120 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(130 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(140 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(150 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(160 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(170 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(180 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(190 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(200 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(210 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(220 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(230 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(240 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(250 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(260 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(270 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(280 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(290 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(300 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(310 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(320 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(330 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(340 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(350 200 200)"/></g></svg>
+    <div class="jharokha reveal">
+      <div class="om">ॐ</div>
+      <div class="ganesh">॥ श्री गणेशाय नमः ॥<br>वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</div>
+      <div class="names">Sachin<span>&amp;</span>Palak</div>
+      <div class="kicker">are tying the knot</div>
+    </div>
+  
+    <button class="next" id="next" aria-label="Go to next section"><span>Scroll</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+  </section>
+
+  <!-- INVITATION -->
+  <section class="invite reveal">
+    <svg class="mandala" viewBox="0 0 400 400" fill="none" stroke="#f3d98b" stroke-width="1.1">
+      <circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="176"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(0 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(15 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(30 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(45 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(60 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(75 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(90 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(105 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(120 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(135 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(150 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(165 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(180 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(195 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(210 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(225 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(240 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(255 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(270 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(285 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(300 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(315 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(330 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(345 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(0 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(20 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(40 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(60 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(80 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(100 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(120 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(140 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(160 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(180 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(200 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(220 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(240 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(260 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(280 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(300 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(320 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(340 200 200)"/>
+      <circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="38"/><circle cx="200" cy="200" r="16"/>
+      <g fill="#f3d98b" stroke="none"><circle cx="200" cy="12" r="3" transform="rotate(0 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(10 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(20 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(30 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(40 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(50 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(60 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(70 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(80 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(90 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(100 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(110 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(120 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(130 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(140 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(150 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(160 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(170 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(180 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(190 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(200 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(210 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(220 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(230 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(240 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(250 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(260 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(270 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(280 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(290 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(300 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(310 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(320 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(330 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(340 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(350 200 200)"/></g></svg>
+    <div class="inv-card">
+      <svg class="feather l" viewBox="0 0 60 90"><path d="M30 88 C30 60 28 40 30 10" stroke="#0b4f57" stroke-width="2" fill="none"/><ellipse cx="30" cy="30" rx="20" ry="28" fill="#0e6e8c"/><ellipse cx="30" cy="30" rx="13" ry="18" fill="#1f8a5b"/><ellipse cx="30" cy="30" rx="8" ry="11" fill="#fbbf24"/><ellipse cx="30" cy="30" rx="4.5" ry="6" fill="#0b2a6b"/></svg><svg class="feather r" viewBox="0 0 60 90"><path d="M30 88 C30 60 28 40 30 10" stroke="#0b4f57" stroke-width="2" fill="none"/><ellipse cx="30" cy="30" rx="20" ry="28" fill="#0e6e8c"/><ellipse cx="30" cy="30" rx="13" ry="18" fill="#1f8a5b"/><ellipse cx="30" cy="30" rx="8" ry="11" fill="#fbbf24"/><ellipse cx="30" cy="30" rx="4.5" ry="6" fill="#0b2a6b"/></svg>
+      <span class="kicker">With the blessings of<br>the Almighty &amp; our elders</span>
+      <svg class="feather-div" viewBox="0 0 180 24"><path d="M0 12 H70 M110 12 H180" stroke="#f59e0b" stroke-width="1.5"/><ellipse cx="90" cy="12" rx="16" ry="9" fill="#0e6e8c"/><ellipse cx="90" cy="12" rx="9" ry="5" fill="#1f8a5b"/><circle cx="90" cy="12" r="3.5" fill="#0b2a6b"/></svg>
+      <p class="fam">Smt. Madhu Goyal<span class="amp">&amp;</span>Shri Subhash Goyal</p>
+      <p class="lead">request the pleasure of your company<br>at the wedding of their son</p>
+      <div class="nm">Sachin</div>
+      <div class="with">with</div>
+      <div class="nm">Palak</div>
+      <p class="lead">daughter of</p>
+      <p class="fam">Smt. Santosh Agarwal<span class="amp">&amp;</span>Shri Kailash Agarwal</p>
+      <p class="closing">Join us for two days of colour,<br>music and blessings.</p>
+    </div>
+  </section>
+
+  <!-- BELL -->
+  <section class="reveal sec-bell">
+    <svg class="mandala" viewBox="0 0 400 400" fill="none" stroke="#f3d98b" stroke-width="1.1">
+      <circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="176"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(0 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(15 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(30 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(45 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(60 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(75 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(90 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(105 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(120 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(135 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(150 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(165 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(180 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(195 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(210 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(225 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(240 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(255 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(270 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(285 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(300 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(315 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(330 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(345 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(0 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(20 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(40 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(60 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(80 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(100 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(120 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(140 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(160 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(180 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(200 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(220 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(240 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(260 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(280 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(300 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(320 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(340 200 200)"/>
+      <circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="38"/><circle cx="200" cy="200" r="16"/>
+      <g fill="#f3d98b" stroke="none"><circle cx="200" cy="12" r="3" transform="rotate(0 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(10 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(20 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(30 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(40 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(50 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(60 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(70 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(80 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(90 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(100 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(110 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(120 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(130 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(140 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(150 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(160 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(170 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(180 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(190 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(200 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(210 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(220 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(230 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(240 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(250 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(260 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(270 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(280 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(290 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(300 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(310 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(320 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(330 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(340 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(350 200 200)"/></g></svg>
+    <div class="kicker">The auspicious day</div>
+    <h2>Ring the Bell</h2>
+    <button class="bell-wrap" id="bell" aria-label="Ring the bell">
+      <svg viewBox="0 0 160 190">
+        <defs><linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#b8860b"/><stop offset=".45" stop-color="#ffe08a"/><stop offset=".7" stop-color="#f5b70a"/><stop offset="1" stop-color="#a16207"/></linearGradient></defs>
+        <path d="M80 0 V22" stroke="#7a4a12" stroke-width="4"/>
+        <g class="bell">
+          <circle cx="80" cy="26" r="7" fill="none" stroke="#a16207" stroke-width="4"/>
+          <path d="M80 32 C52 32 42 58 40 92 C38 122 28 134 18 142 H142 C132 134 122 122 120 92 C118 58 108 32 80 32Z" fill="url(#bg)"/>
+          <rect x="14" y="140" width="132" height="12" rx="6" fill="#a16207"/>
+          <path d="M50 70 Q80 60 110 70 M46 100 Q80 90 114 100" stroke="#a16207" stroke-width="2" fill="none" opacity=".6"/>
+          <circle cx="80" cy="166" r="11" fill="#a16207"/><path d="M80 152 V158" stroke="#a16207" stroke-width="4"/>
+        </g>
+      </svg>
+    </button>
+    <div class="bell-note" id="bellNote">Tap the temple bell to reveal the date 🔔</div>
+    <div class="datebox" id="datebox">
+      <div class="cal"><div class="m">DECEMBER 2026</div><div class="d">12</div><div class="w">SATURDAY · 7:00 PM</div></div>
+      <div class="cd"><div><b id="cD">0</b><small>Days</small></div><div><b id="cH">0</b><small>Hrs</small></div><div><b id="cM">0</b><small>Min</small></div><div><b id="cS">0</b><small>Sec</small></div></div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="reveal sec-events">
+    <svg class="mandala" viewBox="0 0 400 400" fill="none" stroke="#f3d98b" stroke-width="1.1">
+      <circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="176"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(0 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(15 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(30 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(45 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(60 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(75 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(90 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(105 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(120 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(135 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(150 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(165 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(180 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(195 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(210 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(225 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(240 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(255 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(270 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(285 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(300 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(315 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(330 200 200)"/><ellipse cx="200" cy="70" rx="14" ry="46" transform="rotate(345 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(0 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(20 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(40 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(60 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(80 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(100 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(120 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(140 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(160 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(180 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(200 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(220 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(240 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(260 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(280 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(300 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(320 200 200)"/><ellipse cx="200" cy="120" rx="9" ry="26" transform="rotate(340 200 200)"/>
+      <circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="38"/><circle cx="200" cy="200" r="16"/>
+      <g fill="#f3d98b" stroke="none"><circle cx="200" cy="12" r="3" transform="rotate(0 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(10 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(20 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(30 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(40 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(50 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(60 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(70 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(80 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(90 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(100 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(110 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(120 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(130 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(140 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(150 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(160 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(170 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(180 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(190 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(200 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(210 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(220 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(230 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(240 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(250 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(260 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(270 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(280 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(290 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(300 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(310 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(320 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(330 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(340 200 200)"/><circle cx="200" cy="12" r="3" transform="rotate(350 200 200)"/></g></svg>
+    <div class="kicker">The festivities</div>
+    <h2>Celebrations</h2>
+    <p class="hint">Tap a card to see the details</p>
+    <div class="cards" id="cards"></div>
+  </section>
+</main>
+
+<footer class="reveal">
+  <div class="kicker" style="color:var(--mari2)">Awaiting your presence</div>
+  <div class="brush">Goyal Family</div>
+  <p>Your blessings are our greatest gift</p>
+  <div class="tagline">See you there ✦</div>
+  <div class="venue">
+    <div class="pin"><svg width="26" height="26" viewBox="0 0 24 24" fill="#0b4f57"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+    <div class="kicker" style="color:var(--mari2)">The venue</div>
+    <h4>Padmavat Resort</h4>
+    <div class="when">11 &amp; 12 December 2026</div>
+    <a href="https://maps.app.goo.gl/SkaBtEaqDtVK7sDn6" target="_blank" rel="noopener">Get Directions ↗</a>
+  </div>
+</footer>
+
+<script>
+/* ===================== EDIT HERE ===================== */
+const WEDDING = "2026-12-12T19:00:00+05:30";
+const MAP = "https://maps.app.goo.gl/SkaBtEaqDtVK7sDn6";
+const EVENTS = [
+  { key:"sangeet", em:"💃", name:"Sangeet", title:"Sitaaron Ki Mehfil", short:"FRI · 11 DEC · 6 PM", tag:"Music, dance & masti",
+    date:"Friday, 11 December 2026", time:"6:00 PM onwards", venue:"Padmavat Resort", dress:"Tuxedo",
+    start:"20261211T123000Z", end:"20261211T173000Z" },
+  { key:"haldi", em:"🌼", name:"Haldi", title:"Mellow Yellow", noLinks:true, short:"SAT · 12 DEC · 11 AM", tag:"Turmeric, sunshine & giggles",
+    date:"Saturday, 12 December 2026", time:"11:00 AM", venue:"Padmavat Resort", dress:"South Indian attire",
+    start:"20261212T053000Z", end:"20261212T083000Z" },
+  { key:"wedding", em:"🪔", name:"Wedding", title:"Saat Phere, Ek Vaada", short:"SAT · 12 DEC · 7 PM", tag:"Seven vows, one forever",
+    date:"Saturday, 12 December 2026", time:"7:00 PM", venue:"Padmavat Resort", dress:"Jodhpuri / Indian",
+    start:"20261212T133000Z", end:"20261212T193000Z" },
+];
+/* ===================================================== */
+
+
+/* cards */
+const cw=document.getElementById('cards');
+EVENTS.forEach(e=>{
+  const cal=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(e.title+" ("+e.name+") – Sachin & Palak")}&dates=${e.start}/${e.end}&location=${encodeURIComponent(e.venue)}&details=${encodeURIComponent("Dress code: "+e.dress)}`;
+  const d=document.createElement('div');d.className='flip '+e.key;
+  d.innerHTML=`<div class="in">
+    <div class="face front"><div class="em">${e.em}</div><h3>${e.title}</h3><div class="orig">${e.name}</div><div class="when">${e.short}</div><div class="tap">Tap to flip ↻</div></div>
+    <div class="face back"><h4>${e.em} ${e.title}</h4><div class="orig2">${e.name}</div><div class="tag">${e.tag}</div>
+      <div class="row"><span>📅</span><div><small>Date</small>${e.date}</div></div>
+      <div class="row"><span>⏰</span><div><small>Time</small>${e.time}</div></div>
+      <div class="row"><span>📍</span><div><small>Venue</small>${e.venue}</div></div>
+      <div class="row"><span>👔</span><div><small>Dress code</small>${e.dress}</div></div>
+      ${e.noLinks?'':`<div class="btns"><a class="p" href="${MAP}" target="_blank" rel="noopener">Directions</a><a class="s" href="${cal}" target="_blank" rel="noopener">Calendar</a></div>`}
+    </div></div>`;
+  d.addEventListener('click',ev=>{ if(ev.target.closest('a'))return; d.classList.toggle('on'); });
+  cw.appendChild(d);
+});
+
+/* confetti: marigold petals + feathers */
+const cv=document.getElementById('fx'),cx=cv.getContext('2d');let W,H,parts=[];
+function rs(){W=innerWidth;H=innerHeight;cv.width=W*devicePixelRatio;cv.height=H*devicePixelRatio;cx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}rs();addEventListener('resize',rs);
+const PC=['#f59e0b','#fbbf24','#f97316','#c0266d','#1f8a5b','#0e6e8c'];
+function burst(n,x=W/2,y=H/2){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=Math.random()*9+3;
+  parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-5,r:Math.random()*5+4,rot:Math.random()*6,vr:(Math.random()-.5)*.25,c:PC[Math.random()*PC.length|0],life:1})}}
+function rain(n){for(let i=0;i<n;i++)setTimeout(()=>parts.push({x:Math.random()*W,y:-20,vx:(Math.random()-.5),vy:Math.random()*2+1.5,r:Math.random()*5+4,rot:Math.random()*6,vr:(Math.random()-.5)*.1,c:PC[Math.random()*3|0],life:1,rain:1}),i*40)}
+(function loop(){cx.clearRect(0,0,W,H);parts.forEach(p=>{if(!p.rain){p.vy+=.25;p.vx*=.985}else{p.vx+=Math.sin(p.y/40)*.03}
+  p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.beginPath();cx.ellipse(0,0,p.r,p.r*.5,0,0,7);cx.fill();cx.restore()});
+  parts=parts.filter(p=>p.y<H+30);requestAnimationFrame(loop)})();
+
+/* music: sitar-style (Karplus-Strong) Raag Khamaj + dholak */
+const Music=(()=>{let ctx,master,on=false,timer,nt=0,i=0,beat=0;const SA=277.18,f=s=>SA*Math.pow(2,s/12),B=.32;
+  // Khamaj: S R G M P D N (asc), n (komal) desc
+  const T=[[0,1],[4,1],[5,1],[7,2],[9,1],[11,1],[12,2],[null,1],[12,1],[10,1],[9,1],[7,2],[5,1],[4,1],[2,1],[4,3],[null,1],
+           [7,1],[9,1],[10,1],[9,1],[7,1],[5,1],[4,2],[5,1],[4,1],[2,1],[0,4],[null,2]];
+  function init(){ctx=new (window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=0;
+    const dl=ctx.createDelay(1);dl.delayTime.value=.26;const fb=ctx.createGain();fb.gain.value=.25;master.connect(ctx.destination);master.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(ctx.destination);}
+  function pluck(fr,t,dur,vol=.5,bright=.996){const sr=ctx.sampleRate,N=Math.round(sr/fr),len=Math.ceil(sr*dur),buf=ctx.createBuffer(1,len,sr),d=buf.getChannelData(0);
+    const ring=new Float32Array(N);for(let k=0;k<N;k++)ring[k]=Math.random()*2-1;let idx=0;
+    for(let k=0;k<len;k++){const nx=(idx+1)%N;const v=ring[idx];ring[idx]=bright*.5*(v+ring[nx]);d[k]=v;idx=nx;}
+    const s=ctx.createBufferSource();s.buffer=buf;const g=ctx.createGain();g.gain.value=vol;
+    const bp=ctx.createBiquadFilter();bp.type='peaking';bp.frequency.value=2200;bp.gain.value=8;s.connect(bp);bp.connect(g);g.connect(master);s.start(t);}
+  function drum(t,low){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(low?110:240,t);o.frequency.exponentialRampToValueAtTime(low?55:160,t+.15);
+    g.gain.setValueAtTime(low?.5:.22,t);g.gain.exponentialRampToValueAtTime(.001,t+(low?.35:.12));o.connect(g);g.connect(master);o.start(t);o.stop(t+.4);}
+  function sch(){while(nt<ctx.currentTime+1){const [s,b]=T[i%T.length];const d=b*B;
+      if(s!==null){pluck(f(s),nt,1.6,.55);}
+      for(let k=0;k<b;k++){const bt=(beat+k)%8;const tt=nt+k*B;if(bt===0||bt===5)drum(tt,true);else if(bt===2||bt===3||bt===6)drum(tt,false);
+        if(bt===0)pluck(SA/2,tt,2.5,.22,.998);}
+      beat=(beat+b)%8;nt+=d;i++;}}
+  return{start(){try{if(!ctx)init();ctx.resume();on=true;nt=ctx.currentTime+.15;master.gain.cancelScheduledValues(ctx.currentTime);master.gain.linearRampToValueAtTime(.7,ctx.currentTime+1);clearInterval(timer);timer=setInterval(sch,150)}catch(e){}},
+         stop(){if(!ctx)return;on=false;clearInterval(timer);master.gain.linearRampToValueAtTime(0,ctx.currentTime+.5)},get on(){return on}}})();
+const ON='<svg viewBox="0 0 24 24" fill="#fbbf24"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h6V3H9z"/></svg>';
+const OFF='<svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M9 17V4h8v4M9 17a3 3 0 1 1-3-3 3 3 0 0 1 3 3z"/><path d="M3 3l18 18"/></svg>';
+const mb=document.getElementById('music');mb.innerHTML=ON;
+mb.onclick=()=>{if(Music.on){Music.stop();mb.classList.remove('on');mb.innerHTML=OFF}else{Music.start();mb.classList.add('on');mb.innerHTML=ON}};
+
+
+/* gentle falling rose petals on the opening screen */
+const petalTimer=setInterval(()=>{ if(document.getElementById('curtain').classList.contains('up')){clearInterval(petalTimer);return;}
+  parts.push({x:Math.random()*W,y:-20,vx:(Math.random()-.5)*.6,vy:Math.random()*1+.8,r:Math.random()*4+4,rot:Math.random()*6,vr:(Math.random()-.5)*.06,
+    c:['#f472b6','#f9a8c0','#fbcfe0','#e11d74'][Math.random()*4|0],life:1,rain:1}); },260);
+
+/* open */
+document.getElementById('pull').onclick=()=>{const c=document.getElementById('curtain');if(c.classList.contains('up'))return;
+  c.classList.add('up');Music.start();mb.style.display='flex';mb.classList.add('on');rain(120);
+  setTimeout(()=>{document.body.classList.remove('locked');c.style.display='none'},1900)};
+
+/* next */
+document.getElementById('next').onclick=()=>document.querySelector('section.invite').scrollIntoView({behavior:'smooth'});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* bell */
+let rung=false;const bell=document.getElementById('bell');
+function bellSound(){try{if(!Music.on&&!window._bc)window._bc=new (window.AudioContext||window.webkitAudioContext)();
+  const ac=window._bc||new (window.AudioContext||window.webkitAudioContext)();window._bc=ac;const t=ac.currentTime;
+  [[523,.25],[1046,.12],[1318,.08],[1567,.05],[2093,.03]].forEach(([fr,v])=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=fr;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+3);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+3)})}catch(e){}}
+bell.onclick=()=>{bell.classList.remove('ring');void bell.offsetWidth;bell.classList.add('ring');bellSound();
+  if(rung)return;rung=true;const r=bell.getBoundingClientRect();burst(90,r.left+r.width/2,r.top+r.height/2);
+  document.getElementById('bellNote').textContent='Shubh muhurat — we can\'t wait to celebrate with you!';
+  document.getElementById('datebox').classList.add('show');
+  const wd=new Date(WEDDING);const tk=()=>{let s=Math.max(0,(wd-new Date())/1000|0);cD.textContent=Math.floor(s/86400);cH.textContent=Math.floor(s%86400/3600);cM.textContent=Math.floor(s%3600/60);cS.textContent=s%60};tk();setInterval(tk,1000)};
+</script>
+</body>
+</html>
