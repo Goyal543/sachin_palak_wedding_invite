@@ -179,6 +179,10 @@ footer .tagline{font-family:'Yeseva One',serif;font-size:1.4rem;margin-top:22px}
 .venue a{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:13px 26px;border-radius:999px;background:var(--mari);color:var(--teal);
   text-decoration:none;font-weight:700;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 
+#track{position:fixed;right:16px;bottom:82px;z-index:70;display:none;flex-direction:column;align-items:flex-end;gap:1px;padding:7px 14px;text-align:right;border-radius:999px;
+  border:2px solid var(--mari);background:var(--teal);color:var(--cream);cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.25);font-family:'Mulish',sans-serif;text-align:left}
+#track span{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mari2);font-weight:700}
+#track b{font-size:.78rem;font-weight:700}
 #music{position:fixed;right:16px;bottom:16px;z-index:70;width:56px;height:56px;border-radius:50%;border:3px solid var(--mari);background:var(--teal);
   display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 #music svg{width:26px;height:26px}
@@ -191,6 +195,7 @@ footer .tagline{font-family:'Yeseva One',serif;font-size:1.4rem;margin-top:22px}
 <body class="locked">
 <canvas id="fx"></canvas>
 <button id="music" aria-label="Toggle music"></button>
+<button id="track" aria-label="Change song"><span>♫ Next song</span><b>Sitar · Khamaj</b></button>
 
 <!-- ================= CURTAIN ================= -->
 <div id="curtain">
@@ -361,12 +366,29 @@ function rain(n){for(let i=0;i<n;i++)setTimeout(()=>parts.push({x:Math.random()*
   parts=parts.filter(p=>p.y<H+30);requestAnimationFrame(loop)})();
 
 /* music: sitar-style (Karplus-Strong) Raag Khamaj + dholak */
-const Music=(()=>{let ctx,master,on=false,timer,nt=0,i=0,beat=0;const SA=277.18,f=s=>SA*Math.pow(2,s/12),B=.32;
+const Music=(()=>{let ctx,master,drone,on=false,timer,nt=0,i=0,beat=0,track=0;const SA=277.18,f=s=>SA*Math.pow(2,s/12),B=.32;
+  // Track 2 – Shehnai "Mangal Dhun" in Raag Yaman (S R G M# P D N), slow & auspicious
+  const T2=[[null,2],[-1,1,-3],[2,1],[4,3],[2,1],[4,1],[6,1],[7,4],[null,1],
+            [7,1],[9,1,7],[11,1],[12,3],[11,1],[9,1],[7,1],[6,1],[4,2],[6,1,4],[4,1],[2,1],[0,4],[null,1],
+            [4,1],[6,1],[7,2],[9,1],[7,1],[6,1],[4,1],[2,1],[4,1],[-1,1],[0,5],[null,2]];
   // Khamaj: S R G M P D N (asc), n (komal) desc
   const T=[[0,1],[4,1],[5,1],[7,2],[9,1],[11,1],[12,2],[null,1],[12,1],[10,1],[9,1],[7,2],[5,1],[4,1],[2,1],[4,3],[null,1],
            [7,1],[9,1],[10,1],[9,1],[7,1],[5,1],[4,2],[5,1],[4,1],[2,1],[0,4],[null,2]];
   function init(){ctx=new (window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=0;
-    const dl=ctx.createDelay(1);dl.delayTime.value=.26;const fb=ctx.createGain();fb.gain.value=.25;master.connect(ctx.destination);master.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(ctx.destination);}
+    const dl=ctx.createDelay(1);dl.delayTime.value=.26;const fb=ctx.createGain();fb.gain.value=.25;master.connect(ctx.destination);master.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(ctx.destination);
+    drone=ctx.createGain();drone.gain.value=0;drone.connect(master);
+    [[SA/2,.06],[f(7)/2,.035],[SA/4,.05]].forEach(([fr,g])=>{const o=ctx.createOscillator();o.type='sawtooth';o.frequency.value=fr;
+      const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=650;const gg=ctx.createGain();gg.gain.value=g;o.connect(lp);lp.connect(gg);gg.connect(drone);o.start();});}
+  function reed(semi,beats,from,t){const d=beats*.55;
+    const o1=ctx.createOscillator(),o2=ctx.createOscillator();o1.type='sawtooth';o2.type='square';o2.detune.value=7;
+    const fr=f(semi);[o1,o2].forEach(o=>{if(from!==undefined){o.frequency.setValueAtTime(f(from),t);o.frequency.exponentialRampToValueAtTime(fr,t+.2);}else o.frequency.setValueAtTime(fr,t);});
+    const v=ctx.createOscillator(),vg=ctx.createGain();v.frequency.value=5.4;vg.gain.setValueAtTime(0,t);vg.gain.linearRampToValueAtTime(11,t+Math.min(d,.5));v.connect(vg);vg.connect(o1.detune);vg.connect(o2.detune);
+    const bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=1300;bp.Q.value=1.3;const hp=ctx.createBiquadFilter();hp.type='highpass';hp.frequency.value=320;
+    const m2=ctx.createGain();m2.gain.value=.35;const g=ctx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.15,t+.06);g.gain.setValueAtTime(.13,t+d*.82);g.gain.linearRampToValueAtTime(0,t+d+.04);
+    o1.connect(bp);o2.connect(m2);m2.connect(bp);bp.connect(hp);hp.connect(g);g.connect(master);[o1,o2,v].forEach(o=>{o.start(t);o.stop(t+d+.08)});return d;}
+  function tabla(t,kind){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';
+    const fr=kind==='dha'?95:kind==='na'?420:260;o.frequency.setValueAtTime(fr*1.4,t);o.frequency.exponentialRampToValueAtTime(fr,t+.05);
+    g.gain.setValueAtTime(kind==='dha'?.42:.16,t);g.gain.exponentialRampToValueAtTime(.001,t+(kind==='dha'?.5:.18));o.connect(g);g.connect(master);o.start(t);o.stop(t+.55);}
   function pluck(fr,t,dur,vol=.5,bright=.996){const sr=ctx.sampleRate,N=Math.round(sr/fr),len=Math.ceil(sr*dur),buf=ctx.createBuffer(1,len,sr),d=buf.getChannelData(0);
     const ring=new Float32Array(N);for(let k=0;k<N;k++)ring[k]=Math.random()*2-1;let idx=0;
     for(let k=0;k<len;k++){const nx=(idx+1)%N;const v=ring[idx];ring[idx]=bright*.5*(v+ring[nx]);d[k]=v;idx=nx;}
@@ -374,17 +396,28 @@ const Music=(()=>{let ctx,master,on=false,timer,nt=0,i=0,beat=0;const SA=277.18,
     const bp=ctx.createBiquadFilter();bp.type='peaking';bp.frequency.value=2200;bp.gain.value=8;s.connect(bp);bp.connect(g);g.connect(master);s.start(t);}
   function drum(t,low){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(low?110:240,t);o.frequency.exponentialRampToValueAtTime(low?55:160,t+.15);
     g.gain.setValueAtTime(low?.5:.22,t);g.gain.exponentialRampToValueAtTime(.001,t+(low?.35:.12));o.connect(g);g.connect(master);o.start(t);o.stop(t+.4);}
-  function sch(){while(nt<ctx.currentTime+1){const [s,b]=T[i%T.length];const d=b*B;
+  function sch2(){while(nt<ctx.currentTime+1.2){const [s,b,fr]=T2[i%T2.length];const d=b*.55;
+      if(s!==null) reed(s,b,fr,nt);
+      for(let k=0;k<b;k++){const bt=(beat+k)%8,tt=nt+k*.55;tabla(tt,bt===0||bt===4?'dha':bt%2?'na':'tin');}
+      beat=(beat+b)%8;nt+=d;i++;}}
+  function sch(){if(track===1)return sch2();while(nt<ctx.currentTime+1){const [s,b]=T[i%T.length];const d=b*B;
       if(s!==null){pluck(f(s),nt,1.6,.55);}
       for(let k=0;k<b;k++){const bt=(beat+k)%8;const tt=nt+k*B;if(bt===0||bt===5)drum(tt,true);else if(bt===2||bt===3||bt===6)drum(tt,false);
         if(bt===0)pluck(SA/2,tt,2.5,.22,.998);}
       beat=(beat+b)%8;nt+=d;i++;}}
-  return{start(){try{if(!ctx)init();ctx.resume();on=true;nt=ctx.currentTime+.15;master.gain.cancelScheduledValues(ctx.currentTime);master.gain.linearRampToValueAtTime(.7,ctx.currentTime+1);clearInterval(timer);timer=setInterval(sch,150)}catch(e){}},
-         stop(){if(!ctx)return;on=false;clearInterval(timer);master.gain.linearRampToValueAtTime(0,ctx.currentTime+.5)},get on(){return on}}})();
+  return{start(){try{if(!ctx)init();ctx.resume();on=true;nt=ctx.currentTime+.15;i=0;beat=0;master.gain.cancelScheduledValues(ctx.currentTime);master.gain.linearRampToValueAtTime(.7,ctx.currentTime+1);
+           drone.gain.cancelScheduledValues(ctx.currentTime);drone.gain.linearRampToValueAtTime(track===1?1:0,ctx.currentTime+1);clearInterval(timer);timer=setInterval(sch,150)}catch(e){}},
+         stop(){if(!ctx)return;on=false;clearInterval(timer);master.gain.linearRampToValueAtTime(0,ctx.currentTime+.5)},
+         next(){track=(track+1)%2;if(on){clearInterval(timer);const now=ctx.currentTime;master.gain.cancelScheduledValues(now);master.gain.setValueAtTime(master.gain.value,now);master.gain.linearRampToValueAtTime(0,now+.4);
+           setTimeout(()=>this.start(),450);}else this.start();return track;},
+         get on(){return on},get track(){return track}}})();
 const ON='<svg viewBox="0 0 24 24" fill="#fbbf24"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h6V3H9z"/></svg>';
 const OFF='<svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M9 17V4h8v4M9 17a3 3 0 1 1-3-3 3 3 0 0 1 3 3z"/><path d="M3 3l18 18"/></svg>';
 const mb=document.getElementById('music');mb.innerHTML=ON;
 mb.onclick=()=>{if(Music.on){Music.stop();mb.classList.remove('on');mb.innerHTML=OFF}else{Music.start();mb.classList.add('on');mb.innerHTML=ON}};
+const TRACKS=['Sitar · Khamaj','Shehnai · Mangal Dhun'];
+const tb=document.getElementById('track');
+tb.onclick=()=>{const t=Music.next();tb.querySelector('b').textContent=TRACKS[t];mb.classList.add('on');mb.innerHTML=ON;};
 
 
 /* gentle falling rose petals on the opening screen */
@@ -394,7 +427,7 @@ const petalTimer=setInterval(()=>{ if(document.getElementById('curtain').classLi
 
 /* open */
 document.getElementById('pull').onclick=()=>{const c=document.getElementById('curtain');if(c.classList.contains('up'))return;
-  c.classList.add('up');Music.start();mb.style.display='flex';mb.classList.add('on');rain(120);
+  c.classList.add('up');Music.start();mb.style.display='flex';document.getElementById('track').style.display='flex';mb.classList.add('on');rain(120);
   setTimeout(()=>{document.body.classList.remove('locked');c.style.display='none'},1900)};
 
 /* next */
