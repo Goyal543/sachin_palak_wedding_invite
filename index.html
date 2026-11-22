@@ -34,7 +34,7 @@ body.locked{overflow:hidden;height:100vh}
   display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 1.8s cubic-bezier(.7,0,.3,1)}
 #curtain.up{transform:translateY(-105%)}
 .mandala{position:absolute;left:50%;top:50%;width:min(150vw,900px);height:min(150vw,900px);margin:calc(min(150vw,900px)/-2) 0 0 calc(min(150vw,900px)/-2);
-  opacity:.14;animation:turn 90s linear infinite;pointer-events:none}
+  opacity:.14;animation:turn 90s linear infinite;pointer-events:none;will-change:transform}
 @keyframes turn{to{transform:rotate(360deg)}}
 .corner{position:absolute;width:110px;height:110px;opacity:.55;pointer-events:none}
 .corner.tl{top:14px;left:14px}.corner.tr{top:14px;right:14px;transform:scaleX(-1)}
@@ -66,7 +66,7 @@ h2{font-family:'Yeseva One',serif;font-weight:400;font-size:clamp(2rem,7vw,2.8re
   background:
    radial-gradient(circle at 15px 0,#f59e0b 9px,transparent 10px) 0 0/30px 22px repeat-x,
    radial-gradient(circle at 15px 6px,#2f8a4a 5px,transparent 6px) 15px 12px/30px 22px repeat-x;
-  filter:drop-shadow(0 3px 3px rgba(0,0,0,.15))}
+  }
 
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;isolation:isolate}
 .next{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;
@@ -75,7 +75,7 @@ h2{font-family:'Yeseva One',serif;font-weight:400;font-size:clamp(2rem,7vw,2.8re
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 .hero::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;z-index:-2;
   background:radial-gradient(circle at 50% 50%,#0f6268 0%,#0b4f57 50%,#062f34 100%)}
-.hero .mandala{z-index:-1;opacity:.16}
+.hero .mandala{z-index:-1;opacity:.16;animation:none}
 .hero .jharokha{box-shadow:0 0 0 8px #0b4f57,0 0 0 11px var(--mari),0 30px 80px rgba(0,0,0,.45)}
 .jharokha{position:relative;width:min(560px,94vw);padding:80px 28px 46px;background:var(--paper);
   border-radius:280px 280px 24px 24px;border:3px solid var(--teal);
@@ -90,7 +90,8 @@ h2{font-family:'Yeseva One',serif;font-weight:400;font-size:clamp(2rem,7vw,2.8re
 .invite{position:relative;isolation:isolate;padding:80px 0}
 .invite::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;z-index:-2;
   background:radial-gradient(circle at 50% 30%,#fff3df 0%,#fde4c4 55%,#f8cf9c 100%)}
-.invite .mandala{z-index:-1;opacity:.12;filter:brightness(.55) sepia(1) hue-rotate(-15deg)}
+.invite .mandala{z-index:-1;opacity:.10;animation:none;stroke:#b45309}
+.invite .mandala g{fill:#b45309}
 .inv-card{position:relative;max-width:460px;margin:0 16px;margin-inline:max(16px,calc((100% - 460px)/2));padding:46px 26px 40px;background:#fffaf1;border-radius:26px;
   border:2px solid var(--teal);box-shadow:0 0 0 7px #fffaf1,0 0 0 9px var(--mari),0 24px 60px rgba(150,80,10,.22)}
 .inv-card .feather{position:absolute;width:60px;opacity:.9}
@@ -156,7 +157,7 @@ h2{font-family:'Yeseva One',serif;font-weight:400;font-size:clamp(2rem,7vw,2.8re
 .sec-bell,.sec-events{position:relative;isolation:isolate}
 .sec-bell::before,.sec-events::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;z-index:-2}
 .sec-bell::before{background:radial-gradient(circle at 50% 45%,#0f6268 0%,#0b4f57 50%,#062f34 100%)}
-.sec-bell .mandala{z-index:-1;opacity:.16}
+.sec-bell .mandala{z-index:-1;opacity:.16;animation:none}
 .sec-bell .kicker{color:var(--mari2)}
 .sec-bell h2{color:var(--cream)}
 .sec-bell .bell-note{color:#d9ece9}
@@ -165,7 +166,8 @@ h2{font-family:'Yeseva One',serif;font-weight:400;font-size:clamp(2rem,7vw,2.8re
 .sec-bell .cd div{background:rgba(255,255,255,.08);border:1px solid rgba(251,191,36,.5)}
 .sec-events{padding-bottom:110px}
 .sec-events::before{background:linear-gradient(180deg,#e3f3ef 0%,#cfe9e3 60%,#bfe0d9 100%)}
-.sec-events .mandala{z-index:-1;opacity:.10;filter:brightness(.3) sepia(1) hue-rotate(130deg) saturate(3)}
+.sec-events .mandala{z-index:-1;opacity:.10;animation:none;stroke:#0b4f57}
+.sec-events .mandala g{fill:#0b4f57}
 
 /* =============== FOOTER =============== */
 footer{margin-top:-40px;padding:60px 20px 90px;text-align:center;background:var(--teal);color:var(--cream);border-radius:40px 40px 0 0;position:relative}
@@ -321,7 +323,7 @@ const EVENTS = [
   { key:"sangeet", em:"💃", name:"Sangeet", title:"Sitaaron Ki Mehfil", short:"FRI · 11 DEC · 6 PM", tag:"Music, dance & masti",
     date:"Friday, 11 December 2026", time:"6:00 PM onwards", venue:"Padmavat Resort", dress:"Tuxedo",
     start:"20261211T123000Z", end:"20261211T173000Z" },
-  { key:"haldi", em:"🌼", name:"Haldi", title:"Mellow Yellow", noLinks:true, short:"SAT · 12 DEC · 11 AM", tag:"Turmeric, sunshine & giggles",
+  { key:"haldi", em:"🌼", name:"Haldi", title:"Mellow Yellow", short:"SAT · 12 DEC · 11 AM", tag:"Turmeric, sunshine & giggles",
     date:"Saturday, 12 December 2026", time:"11:00 AM", venue:"Padmavat Resort", dress:"South Indian attire",
     start:"20261212T053000Z", end:"20261212T083000Z" },
   { key:"wedding", em:"🪔", name:"Wedding", title:"Saat Phere, Ek Vaada", short:"SAT · 12 DEC · 7 PM", tag:"Seven vows, one forever",
@@ -343,7 +345,6 @@ EVENTS.forEach(e=>{
       <div class="row"><span>⏰</span><div><small>Time</small>${e.time}</div></div>
       <div class="row"><span>📍</span><div><small>Venue</small>${e.venue}</div></div>
       <div class="row"><span>👔</span><div><small>Dress code</small>${e.dress}</div></div>
-      ${e.noLinks?'':`<div class="btns"><a class="p" href="${MAP}" target="_blank" rel="noopener">Directions</a><a class="s" href="${cal}" target="_blank" rel="noopener">Calendar</a></div>`}
     </div></div>`;
   d.addEventListener('click',ev=>{ if(ev.target.closest('a'))return; d.classList.toggle('on'); });
   cw.appendChild(d);
@@ -356,7 +357,7 @@ const PC=['#f59e0b','#fbbf24','#f97316','#c0266d','#1f8a5b','#0e6e8c'];
 function burst(n,x=W/2,y=H/2){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=Math.random()*9+3;
   parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-5,r:Math.random()*5+4,rot:Math.random()*6,vr:(Math.random()-.5)*.25,c:PC[Math.random()*PC.length|0],life:1})}}
 function rain(n){for(let i=0;i<n;i++)setTimeout(()=>parts.push({x:Math.random()*W,y:-20,vx:(Math.random()-.5),vy:Math.random()*2+1.5,r:Math.random()*5+4,rot:Math.random()*6,vr:(Math.random()-.5)*.1,c:PC[Math.random()*3|0],life:1,rain:1}),i*40)}
-(function loop(){cx.clearRect(0,0,W,H);parts.forEach(p=>{if(!p.rain){p.vy+=.25;p.vx*=.985}else{p.vx+=Math.sin(p.y/40)*.03}
+let wasEmpty=false;(function loop(){if(!parts.length){if(!wasEmpty){cx.clearRect(0,0,W,H);wasEmpty=true;}requestAnimationFrame(loop);return;}wasEmpty=false;cx.clearRect(0,0,W,H);parts.forEach(p=>{if(!p.rain){p.vy+=.25;p.vx*=.985}else{p.vx+=Math.sin(p.y/40)*.03}
   p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.beginPath();cx.ellipse(0,0,p.r,p.r*.5,0,0,7);cx.fill();cx.restore()});
   parts=parts.filter(p=>p.y<H+30);requestAnimationFrame(loop)})();
 
@@ -384,7 +385,7 @@ const petalTimer=setInterval(()=>{ if(document.getElementById('curtain').classLi
 /* open */
 document.getElementById('pull').onclick=()=>{const c=document.getElementById('curtain');if(c.classList.contains('up'))return;
   c.classList.add('up');Music.start();mb.style.display='flex';mb.classList.add('on');rain(120);
-  setTimeout(()=>{document.body.classList.remove('locked');c.style.display='none'},1900)};
+  setTimeout(()=>{document.body.classList.remove('locked');c.style.display='none';c.querySelectorAll('.mandala').forEach(m=>m.style.animation='none')},1900)};
 
 /* next */
 document.getElementById('next').onclick=()=>document.querySelector('section.invite').scrollIntoView({behavior:'smooth'});
