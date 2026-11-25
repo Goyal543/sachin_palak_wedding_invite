@@ -42,8 +42,8 @@ body.locked{overflow:hidden;height:100vh}
 
 
 #curtain{background:radial-gradient(circle at 50% 45%,#0f6268 0%,#0b4f57 45%,#062f34 100%)}
-.c-center{position:relative;z-index:2;text-align:center;color:var(--cream);padding:34px 30px 28px;margin:0 18px;border-radius:200px 200px 28px 28px;background:radial-gradient(circle at 50% 30%,#127a7f,#0b4f57 70%);border:3px solid var(--mari);box-shadow:0 0 0 6px rgba(11,79,87,.9),0 25px 60px rgba(0,0,0,.45)}
-.c-center .brush{font-size:3.6rem;color:var(--mari2);line-height:1.1}
+.c-center{position:relative;z-index:2;text-align:center;color:var(--cream);padding:34px 30px 28px;margin:0 18px;box-sizing:border-box;width:min(460px,calc(100vw - 36px));container-type:inline-size;border-radius:200px 200px 28px 28px;background:radial-gradient(circle at 50% 30%,#127a7f,#0b4f57 70%);border:3px solid var(--mari);box-shadow:0 0 0 6px rgba(11,79,87,.9),0 25px 60px rgba(0,0,0,.45)}
+.c-center .brush{font-size:clamp(2.2rem,9vw,3.2rem);font-size:min(3.3rem,13cqw);color:var(--mari2);line-height:1.15;white-space:nowrap;padding:0 .3em;display:inline-block}
 .c-center .yes{font-size:1.1rem;letter-spacing:.25em;margin-top:10px}
 .peacock{width:150px;margin:0 auto 14px;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
 .pull{margin-top:34px;display:inline-flex;flex-direction:column;align-items:center;gap:10px;background:none;border:none;cursor:pointer;color:var(--mari2)}
@@ -77,13 +77,13 @@ h2{font-family:'Yeseva One',serif;font-weight:400;font-size:clamp(2rem,7vw,2.8re
   background:radial-gradient(circle at 50% 50%,#0f6268 0%,#0b4f57 50%,#062f34 100%)}
 .hero .mandala{z-index:-1;opacity:.16;animation:none}
 .hero .jharokha{box-shadow:0 0 0 8px #0b4f57,0 0 0 11px var(--mari),0 30px 80px rgba(0,0,0,.45)}
-.jharokha{position:relative;width:min(560px,94vw);padding:80px 28px 46px;background:var(--paper);
+.jharokha{position:relative;width:min(560px,94vw);container-type:inline-size;box-sizing:border-box;padding:80px 28px 46px;background:var(--paper);
   border-radius:280px 280px 24px 24px;border:3px solid var(--teal);
   box-shadow:0 0 0 8px var(--cream),0 0 0 11px var(--mari),0 30px 70px rgba(11,79,87,.25)}
 .jharokha::before{content:"";position:absolute;inset:14px;border:1.5px dashed var(--teal2);border-radius:266px 266px 14px 14px;opacity:.5}
 .ganesh{font-family:'Tiro Devanagari Hindi',serif;color:var(--mag);font-size:1rem;line-height:1.9}
 .om{font-size:2.6rem;color:var(--mari);font-family:'Tiro Devanagari Hindi',serif;line-height:1}
-.hero .names{font-family:'Alex Brush',cursive;font-size:clamp(3.2rem,12.5vw,6.4rem);color:var(--teal);line-height:1;margin:24px 0 4px}
+.hero .names{font-family:'Alex Brush',cursive;font-size:clamp(2.6rem,11vw,5rem);font-size:min(5rem,15cqw);white-space:nowrap;padding:0 .2em;color:var(--teal);line-height:1;margin:24px 0 4px}
 .hero .names span{color:var(--mag);font-size:.6em;padding:0 6px}
 .hero .dt{display:inline-block;margin-top:14px;padding:10px 22px;border-radius:999px;background:var(--teal);color:var(--cream);font-weight:700;letter-spacing:.18em;font-size:.8rem}
 
@@ -186,7 +186,7 @@ footer .tagline{font-family:'Yeseva One',serif;font-size:1.4rem;margin-top:22px}
 #music svg{width:26px;height:26px}
 #music.on{animation:pulse 1.2s ease-in-out infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 8px rgba(245,158,11,.25),0 8px 20px rgba(0,0,0,.25)}}
-@media (max-width:520px){.flip{height:400px}.c-center .brush{font-size:3rem}}
+@media (max-width:520px){.flip{height:400px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 </style>
 </head>
