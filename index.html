@@ -41,16 +41,18 @@ body.locked{overflow:hidden;height:100vh}
 .corner.bl{bottom:14px;left:14px;transform:scaleY(-1)}.corner.br{bottom:14px;right:14px;transform:scale(-1)}
 
 
-#curtain{background:radial-gradient(circle at 50% 45%,#0f6268 0%,#0b4f57 45%,#062f34 100%)}
+#curtain{cursor:pointer;background:radial-gradient(circle at 50% 45%,#0f6268 0%,#0b4f57 45%,#062f34 100%)}
 .c-center{position:relative;z-index:2;text-align:center;color:var(--cream);padding:34px 30px 28px;margin:0 18px;box-sizing:border-box;width:min(460px,calc(100vw - 36px));container-type:inline-size;border-radius:200px 200px 28px 28px;background:radial-gradient(circle at 50% 30%,#127a7f,#0b4f57 70%);border:3px solid var(--mari);box-shadow:0 0 0 6px rgba(11,79,87,.9),0 25px 60px rgba(0,0,0,.45)}
 .c-center .brush{font-size:clamp(2.2rem,9vw,3.2rem);font-size:min(3.3rem,13cqw);color:var(--mari2);line-height:1.15;white-space:nowrap;padding:0 .3em;display:inline-block}
 .c-center .yes{font-size:1.1rem;letter-spacing:.25em;margin-top:10px}
 .peacock{width:150px;margin:0 auto 14px;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
 .pull{margin-top:34px;display:inline-flex;flex-direction:column;align-items:center;gap:10px;background:none;border:none;cursor:pointer;color:var(--mari2)}
-.pull .tassel{width:16px;height:70px;position:relative;animation:tug 1.8s ease-in-out infinite}
-.pull .tassel::before{content:"";position:absolute;left:7px;top:0;width:2px;height:40px;background:var(--mari2)}
-.pull .tassel::after{content:"";position:absolute;left:0;top:38px;width:16px;height:30px;border-radius:8px 8px 3px 3px;background:linear-gradient(var(--mag),#8e1450)}
-@keyframes tug{50%{transform:translateY(8px)}}
+.pull .tap-ic{position:relative;width:64px;height:64px;display:grid;place-items:center}
+.pull .tap-ic::before,.pull .tap-ic::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--mari2);animation:ripple2 1.8s ease-out infinite}
+.pull .tap-ic::after{animation-delay:.9s}
+@keyframes ripple2{0%{transform:scale(.45);opacity:1}100%{transform:scale(1.15);opacity:0}}
+.pull .tap-ic svg{width:30px;height:30px;animation:press 1.8s ease-in-out infinite}
+@keyframes press{0%,100%{transform:translateY(0)}45%{transform:translateY(3px) scale(.94)}}
 .pull span{font-weight:700;letter-spacing:.25em;font-size:.72rem;text-transform:uppercase}
 
 /* =============== PAGE =============== */
@@ -217,7 +219,7 @@ footer .tagline{font-family:'Yeseva One',serif;font-size:1.4rem;margin-top:22px}
     </svg>
     <div class="yes">SHUBH VIVAH</div>
     <div class="brush">Sachin &amp; Palak</div>
-    <button class="pull" id="pull"><div class="tassel"></div><span>Pull to open</span></button>
+    <button class="pull" id="pull" aria-label="Tap to open the invitation"><span class="tap-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10"/><path d="M12 9.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.8-2.4L4.3 14.4a1.5 1.5 0 0 1 2.3-1.9L9 15"/></svg></span><span>Tap to open</span></button>
   </div>
 </div>
 
@@ -383,9 +385,11 @@ const petalTimer=setInterval(()=>{ if(document.getElementById('curtain').classLi
     c:['#f472b6','#f9a8c0','#fbcfe0','#e11d74'][Math.random()*4|0],life:1,rain:1}); },260);
 
 /* open */
-document.getElementById('pull').onclick=()=>{const c=document.getElementById('curtain');if(c.classList.contains('up'))return;
+const openInvite=()=>{const c=document.getElementById('curtain');if(c.classList.contains('up'))return;
   c.classList.add('up');Music.start();mb.style.display='flex';mb.classList.add('on');rain(120);
   setTimeout(()=>{document.body.classList.remove('locked');c.style.display='none';c.querySelectorAll('.mandala').forEach(m=>m.style.animation='none')},1900)};
+document.getElementById('curtain').addEventListener('click',openInvite);
+document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!document.getElementById('curtain').classList.contains('up'))openInvite();});
 
 /* next */
 document.getElementById('next').onclick=()=>document.querySelector('section.invite').scrollIntoView({behavior:'smooth'});
